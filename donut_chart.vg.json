@@ -1,0 +1,61 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "A simple donut chart with embedded data.",
+    "params": [
+      {
+        "name": "Genre_selection",
+        "value": "Racing",
+        "bind": {
+        "input": "select",
+        "options": [
+          "Action",
+          "Adventure",
+          "Racing",
+          "Shooter",
+          "Sports"
+          ],
+        "labels":[
+          "Action",
+          "Adventure",
+          "Racing",
+          "Shooter",
+          "Sports"
+          ],
+        "name": "Genre"
+        }
+      }
+    ],
+  "transform": [
+    {"filter": "datum.Genre == Genre_selection"}
+  ],
+  "data": {
+    "url": "https://raw.githubusercontent.com/MaryamPeer/Homework10/main/Game_Sales.csv"
+  },
+  "encoding": {
+    "text": {"field": "Platform", "type": "nominal"},
+    "theta": {"field": "GlobalSales", "type": "quantitative", "stack": true},
+    "color": {"field": "Platform", "type": "nominal"}
+  }, 
+  "layer": [
+    {
+      "mark": {"type": "arc", "innerRadius": 50, "outerRadius": 100, "stroke": "white"}     
+      
+    },    
+    {
+      "mark": {
+      "type": "text",
+      "radius": 120,
+      "fontSize": 12.5   
+      },
+      "transform": [
+        {"calculate": "datum.GlobalSales + ' M'", "as": "globalSales"}
+      ],
+      "encoding": {
+        "text": {
+          "field": "globalSales", "type": "nominal"
+        }
+      }
+    }
+    
+  ]
+}
