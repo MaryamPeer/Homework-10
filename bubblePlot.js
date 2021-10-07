@@ -52,7 +52,7 @@ d3.csv("google-play-store-games.csv", function(d) {
                     .attr("r", d.rating);
             });
 
-        div.html("Game: " + d.data.game + "<br>" + "Ratings: " + d.data.rating  )	
+        div.html("Game: " + d.data.game + "<br>" + "Ratings: " + d.data.rating  )
             .style("left", (d3.event.pageX) + "px")	
             .style("top", (d3.event.pageY) + "px");	
     })					

@@ -22,6 +22,10 @@
 
 div.tooltip {
     position: absolute;
+    background-color: whitesmoke;
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
 }
 
 circle {

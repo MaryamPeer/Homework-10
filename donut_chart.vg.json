@@ -71,9 +71,6 @@
       "encoding": {
         "text": {
           "field": "globalSales", "type": "nominal"
-        },
-        "color": {
-          "value": "black"
         }
       }
     }    
