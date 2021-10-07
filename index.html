@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
     <head>
         <meta charset="utf-8">
@@ -11,28 +11,19 @@
         <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
         <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
         <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-        <!-- <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">  -->
+        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet"> 
+        
         <script src="https://d3js.org/d3.v4.min.js"></script>
         <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="style.css">
-        <style>
-            
-        /* body{overflow-x:hidden;font-family: 'Raleway', sans-serif;}
-        div.tooltip {position: absolute;text-align: center;width: 190px;padding: 10px;font-size:0.9em;background: #96281b;border: 0px;border-radius: 8px;pointer-events: none;top:10px;left:10px;color:#FFFFFF;}	
-        svg{max-width:100%;overflow:hidden;top:60px;width:100%;position:relative;display:block;margin:0 auto;}
-        #container{width:1000px;max-width:100%;margin:0 auto;}
-        circle{cursor:pointer;}
-        circle:hover{opacity:0.7;}
-        h1{text-align:center;margin-bottom:-30px;font-size:26px;font-weight:bold;} */
-        </style>
+       
     </head>
 
     <body>
-
         <div class="container-fluid">
 
-            <div style="width: 100vw; height: 100vh;" class="row">
+            <div class="row">
                 <div id = "bubblePlot" class="col-sm">
                     <div id = "form" class="form-group">
                         <h3 id="h3">5 Top Games on Google Play Store</h3>
@@ -41,11 +32,9 @@
 
                     </div>             
                 </div>
-                <div style="background-color: transparent" class="col-sm">
-                    <!-- <h3>Sale Per Game Genre for Different Consoles</h3> -->
-                    <div class="form-group">
-                        <h3>Sales Per Game Genre for Different Consoles</h3>
-                
+                <div id="donut_chart_section" class="col-sm">   
+                    <div id="form2"  id="form2" class="form-group">
+                        <h3 id="donut_chart_title">Sales Per Game Genre for Different Consoles</h3>                
                         <div id="donut_chart"></div>
                     </div>
                 </div>
@@ -54,8 +43,8 @@
 
         <script type="text/javascript">
 
-            var spec2 = "js/donut_chart.vg.json";
-            vegaEmbed('#donut_chart', spec2).then(function(result) {
+            var spec2 = "donut_chart.vg.json";
+            vegaEmbed('#donut_chart', spec2, {"actions": false}).then(function(result) {
               // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
             }).catch(console.error);
           </script>

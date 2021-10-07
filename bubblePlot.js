@@ -10,14 +10,6 @@ var pack = d3.pack()
 .size([width, height])
 .padding(6);
 
-// svg.append("text")
-//         .attr("x", (width / 2))             
-//         .attr("y", 0)
-//         .attr("text-anchor", "middle")  
-//         .style("font-size", "20px") 
-//         .text("5 Top Games on Google Play Store");
-
-
 d3.csv("google-play-store-games.csv", function(d) {
     d.rating = +d["total ratings"];
     d.game = d["title"]

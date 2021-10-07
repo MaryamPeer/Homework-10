@@ -1,10 +1,12 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": "container",
+    "height": "container",
     "description": "A simple donut chart with embedded data.",
     "params": [
       {
         "name": "Genre_selection",
-        "value": "Racing",
+        "value": "Adventure",
         "bind": {
         "input": "select",
         "options": [
@@ -21,7 +23,7 @@
           "Shooter",
           "Sports"
           ],
-        "name": "Genre"
+        "name": "Genre "
         }
       }
     ],
@@ -29,33 +31,51 @@
     {"filter": "datum.Genre == Genre_selection"}
   ],
   "data": {
-    "url": "https://raw.githubusercontent.com/MaryamPeer/Homework10/main/Game_Sales.csv"
+    "url": "https://raw.githubusercontent.com/MaryamPeer/Homework-10/main/Game_Sales.csv"
   },
   "encoding": {
-    "text": {"field": "Platform", "type": "nominal"},
-    "theta": {"field": "GlobalSales", "type": "quantitative", "stack": true},
-    "color": {"field": "Platform", "type": "nominal"}
-  }, 
+    "theta": {"field": "sales", "type": "quantitative", "stack": true},
+    "color": {
+      "field": "Platform", 
+      "type": "nominal",
+      "scale": {"range": ["#decbe4", "#fbb4ae", "#fed9a6"]},
+      "legend": {
+        "orient": "top-right",
+        "labelFontSize": 12,
+        "titleFontSize": 15
+      }
+    }
+  },
   "layer": [
     {
-      "mark": {"type": "arc", "innerRadius": 50, "outerRadius": 100, "stroke": "white"}     
+      "mark": {
+        "type": "arc", 
+        "innerRadius": 110, 
+        "outerRadius": 170, 
+        "stroke": "white", 
+        "strokeWidth": 2,
+        "x": {"expr": "width / 2"}
+      }     
       
     },    
     {
       "mark": {
-      "type": "text",
-      "radius": 120,
-      "fontSize": 12.5   
+        "type": "text",
+        "radius": 200,
+        "fontSize": 12.5
+        
       },
       "transform": [
-        {"calculate": "datum.GlobalSales + ' M'", "as": "globalSales"}
+        {"calculate": "datum.sales + ' M'", "as": "globalSales"}
       ],
       "encoding": {
         "text": {
           "field": "globalSales", "type": "nominal"
+        },
+        "color": {
+          "value": "black"
         }
       }
-    }
-    
+    }    
   ]
 }
